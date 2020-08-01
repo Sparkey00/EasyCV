@@ -18,3 +18,11 @@ Route::get('/', function()
 {
     return View::make('common.index');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
