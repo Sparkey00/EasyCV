@@ -1,7 +1,6 @@
 <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
         <div class="col-4 pt-1">
-            <a class="text-muted" href="#">Subscribe</a>
         </div>
         <div class="col-4 text-center">
             <a class="blog-header-logo text-dark" href="{{ url('/') }}">{{ config('app.name', 'EasyCV2') }}</a>
@@ -11,11 +10,11 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Войти') }}</a>
+                        <a class="p-2 text-muted" href="{{ route('login') }}">{{ __('Войти') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Реестрация') }}</a>
+                            <a class="p-2 text-muted" href="{{ route('register') }}">{{ __('Реестрация') }}</a>
                         </li>
                     @endif
                 @else
