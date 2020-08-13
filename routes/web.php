@@ -14,15 +14,11 @@ use Illuminate\Support\Facades\View;
 |
 */
 
-Route::get('/', function()
-{
-    return View::make('common.index');
-});
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/welcome', 'HomeController@welcome')->name('welcome');
+Route::get('/home/welcome', 'HomeController@welcome')->name('welcome');
+Route::get('/cv/validate', 'CVController@validateText')->name('validate');
