@@ -14,7 +14,12 @@ class CreateUserInfoTable extends Migration
     public function up()
     {
         Schema::create('user_info', function (Blueprint $table) {
-            $table->id();
+            $table->foreignId('user_id')->comment('Id пользователя');
+            $table->string('first_name')->nullable(false)->comment('Имя пользователя');
+            $table->string('second_name')->default('')->comment('Отчество пользователя');
+            $table->string('surname')->nullable(false)->comment('Фамилия пользователя');
+            $table->string('address')->nullable(false)->comment('Адресс');
+            $table->string('phone')->nullable(false)->comment('Телефон');
             $table->timestamps();
         });
     }

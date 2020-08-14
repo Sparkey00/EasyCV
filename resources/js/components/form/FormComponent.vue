@@ -1,8 +1,8 @@
 <template>
-    <div id="form-conyainer">
+    <div id="general-form">
         <textarea class="form-control" v-model="selected" placeholder="введите несколько строчек"
                   @keyup="fastValidate"></textarea>
-        <input type="button" class="btn btn-light" value="Отправить" v-on:click="alert">
+        <input type="button" class="btn btn-light" value="Отправить" v-on:click="">
     </div>
 </template>
 
@@ -18,28 +18,15 @@
             }
         },
         methods: {
-            alert() {
-                axios.get("/cv/validate", {
-                        params: {
-                            text: this.selected
-                        }
-                    }
-                ).then(response => {
-                    console.log(response.data);
-                    this.selected = response.data;
-                });
-            },
             fastValidate() {
                 clearTimeout(this.timeout);
                 this.timeout = setTimeout(function () {
-                    console.log(this.selected)
                     axios.get("/cv/validate", {
                             params: {
                                 text: this.selected
                             }
                         }
                     ).then(response => {
-                        console.log(response.data);
                         this.selected = response.data;
                     })
                 }.bind(this), 500)

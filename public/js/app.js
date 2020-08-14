@@ -1961,31 +1961,17 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    alert: function alert() {
-      var _this = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/cv/validate", {
-        params: {
-          text: this.selected
-        }
-      }).then(function (response) {
-        console.log(response.data);
-        _this.selected = response.data;
-      });
-    },
     fastValidate: function fastValidate() {
       clearTimeout(this.timeout);
       this.timeout = setTimeout(function () {
-        var _this2 = this;
+        var _this = this;
 
-        console.log(this.selected);
         axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/cv/validate", {
           params: {
             text: this.selected
           }
         }).then(function (response) {
-          console.log(response.data);
-          _this2.selected = response.data;
+          _this.selected = response.data;
         });
       }.bind(this), 500);
     }
@@ -37633,7 +37619,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "form-conyainer" } }, [
+  return _c("div", { attrs: { id: "general-form" } }, [
     _c("textarea", {
       directives: [
         {
@@ -37660,7 +37646,7 @@ var render = function() {
     _c("input", {
       staticClass: "btn btn-light",
       attrs: { type: "button", value: "Отправить" },
-      on: { click: _vm.alert }
+      on: { click: function($event) {} }
     })
   ])
 }
